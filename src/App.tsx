@@ -7,12 +7,14 @@ import UserForm from './components/UserForm/UserForm';
 const App = () => {
   const [users, setUsers] = useState<User[]>([]);
 
-
+  const addUser = (user: User) => {
+    setUsers((prevState) => [...prevState, user]);
+  };
 
   return (
     <div className='row mt-2 justify-content-around'>
       <div className='col-3'>
-        <UserForm  />
+        <UserForm  onSubmit={addUser} />
       </div>
       <div className='col-3'>
         <Users users={users} />
